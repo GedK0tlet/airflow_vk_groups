@@ -1,0 +1,90 @@
+[2024-09-21T12:20:03.265+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: dag_saver_v01.fetch_vk_data scheduled__2024-09-21T04:00:00+00:00 [queued]>
+[2024-09-21T12:20:07.053+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: dag_saver_v01.fetch_vk_data scheduled__2024-09-21T04:00:00+00:00 [queued]>
+[2024-09-21T12:20:07.142+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-21T12:20:07.147+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 2
+[2024-09-21T12:20:07.157+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-21T12:20:09.150+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): fetch_vk_data> on 2024-09-21 04:00:00+00:00
+[2024-09-21T12:20:09.937+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dag_saver_v01', 'fetch_vk_data', 'scheduled__2024-09-21T04:00:00+00:00', '--job-id', '90', '--raw', '--subdir', 'DAGS_FOLDER/dag_saver.py', '--cfg-path', '/tmp/tmp0y9t3na4']
+[2024-09-21T12:20:09.948+0000] {standard_task_runner.py:83} INFO - Job 90: Subtask fetch_vk_data
+[2024-09-21T12:20:09.873+0000] {standard_task_runner.py:55} INFO - Started process 13456 to run task
+[2024-09-21T12:20:24.300+0000] {task_command.py:389} INFO - Running <TaskInstance: dag_saver_v01.fetch_vk_data scheduled__2024-09-21T04:00:00+00:00 [running]> on host 16da3808dee2
+[2024-09-21T12:20:27.860+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Evgeniy
+AIRFLOW_CTX_DAG_ID=dag_saver_v01
+AIRFLOW_CTX_TASK_ID=fetch_vk_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-21T04:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-09-21T04:00:00+00:00
+[2024-09-21T12:21:42.945+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.7/http/client.py", line 1373, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.7/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.7/http/client.py", line 288, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 499, in send
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/local/lib/python3.7/http/client.py", line 1373, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.7/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/local/lib/python3.7/http/client.py", line 288, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/fetch_data_vk.py", line 7, in fetch_data
+    result = wall_get(domain=link, serv_key=token, count_posts=1)
+  File "/opt/airflow/dags/scripts/fetch_data_vk.py", line 22, in wall_get
+    resp =  requests.post(url,data=payload)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 547, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2024-09-21T12:21:52.042+0000] {taskinstance.py:1327} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_saver_v01, task_id=fetch_vk_data, execution_date=20240921T040000, start_date=20240921T122003, end_date=20240921T122151
+[2024-09-21T12:21:54.421+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 90 for task fetch_vk_data (('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); 13456)
+[2024-09-21T12:21:55.047+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2024-09-21T12:21:56.474+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-21T12:21:58.054+0000] {taskinstance.py:1081} INFO - Dependencies not met for <TaskInstance: dag_saver_v01.fetch_vk_data scheduled__2024-09-21T04:00:00+00:00 [up_for_retry]>, dependency 'Not In Retry Period' FAILED: Task is not ready for retry yet but will be retried automatically. Current date is 2024-09-21T12:21:58.049738+00:00 and task will be retried at 2024-09-21T12:26:51.323090+00:00.
+[2024-09-21T12:21:59.028+0000] {local_task_job.py:98} INFO - Task is not able to be run

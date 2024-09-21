@@ -1,0 +1,69 @@
+[2024-09-21T11:30:07.804+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: dag_saver_v01.insert_data manual__2024-09-21T11:24:55.415008+00:00 [queued]>
+[2024-09-21T11:30:07.809+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: dag_saver_v01.insert_data manual__2024-09-21T11:24:55.415008+00:00 [queued]>
+[2024-09-21T11:30:07.809+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-21T11:30:07.810+0000] {taskinstance.py:1284} INFO - Starting attempt 2 of 2
+[2024-09-21T11:30:07.810+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-21T11:30:07.817+0000] {taskinstance.py:1304} INFO - Executing <Task(PostgresOperator): insert_data> on 2024-09-21 11:24:55.415008+00:00
+[2024-09-21T11:30:07.820+0000] {standard_task_runner.py:55} INFO - Started process 9576 to run task
+[2024-09-21T11:30:07.822+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dag_saver_v01', 'insert_data', 'manual__2024-09-21T11:24:55.415008+00:00', '--job-id', '61', '--raw', '--subdir', 'DAGS_FOLDER/dag_saver.py', '--cfg-path', '/tmp/tmpvdli6n_s']
+[2024-09-21T11:30:07.823+0000] {standard_task_runner.py:83} INFO - Job 61: Subtask insert_data
+[2024-09-21T11:30:07.856+0000] {task_command.py:389} INFO - Running <TaskInstance: dag_saver_v01.insert_data manual__2024-09-21T11:24:55.415008+00:00 [running]> on host 16da3808dee2
+[2024-09-21T11:30:07.940+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=<NAME>
+AIRFLOW_CTX_DAG_ID=dag_saver_v01
+AIRFLOW_CTX_TASK_ID=insert_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-21T11:24:55.415008+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-09-21T11:24:55.415008+00:00
+[2024-09-21T11:30:07.941+0000] {sql.py:253} INFO - Executing: 
+            insert into vk_group_posts (vk_group_link, vk_post_id, vk_post_text, vk_post_comments) 
+                values (
+                    'sportcast.online',
+                    '72120',
+                    'Перед стартом нового тура Английской премьер-лиги предлагаем ознакомиться с нашим новым роликом! 
+ 
+После 4-х туров появились те игроки, которые не получают в чемпионате доверие тренерского штаба. Проще говоря, пока они чаще сидят "на банке", чем играют. 
+ 
+Владимир Заводников изучил игровое время футболистов и составил для вас топ-7 игроков, которые на старте сезона стали запасными в своих командах, а вполне могли быть лидерами на поле. Давайте узнаем, кто же это? 
+ 
+Смотри тура в VK:
+https://vk.com/video-214218677_456243439
+
+Смотри на YouTube:
+ https://youtu.be/Eg-Wl0Bx3YE?si=8NypIlwrm8zphG12
+ 
+Не забывайте, что Ваша оценка наших трудов очень нам важна. Ставьте лайки, делитесь видео с друзьями, пишите комментарии и подписывайтесь на канал. 
+ 
+ПОДПИСАТЬСЯ НА НАШ ЮТУБ-КАНАЛ:
+ https://youtube.com/@sportcaston?si=4XYxgDxv4GcIbGvQ',
+                    ':так нуньес не заслуживает играть в старте вот и сидит на банке:'); 
+[2024-09-21T11:30:07.946+0000] {base.py:73} INFO - Using connection ID 'postgres_default' for task execution.
+[2024-09-21T11:30:08.067+0000] {base.py:73} INFO - Using connection ID 'postgres_default' for task execution.
+[2024-09-21T11:30:08.083+0000] {sql.py:364} INFO - Running statement: 
+            insert into vk_group_posts (vk_group_link, vk_post_id, vk_post_text, vk_post_comments) 
+                values (
+                    'sportcast.online',
+                    '72120',
+                    'Перед стартом нового тура Английской премьер-лиги предлагаем ознакомиться с нашим новым роликом! 
+ 
+После 4-х туров появились те игроки, которые не получают в чемпионате доверие тренерского штаба. Проще говоря, пока они чаще сидят "на банке", чем играют. 
+ 
+Владимир Заводников изучил игровое время футболистов и составил для вас топ-7 игроков, которые на старте сезона стали запасными в своих командах, а вполне могли быть лидерами на поле. Давайте узнаем, кто же это? 
+ 
+Смотри тура в VK:
+https://vk.com/video-214218677_456243439
+
+Смотри на YouTube:
+ https://youtu.be/Eg-Wl0Bx3YE?si=8NypIlwrm8zphG12
+ 
+Не забывайте, что Ваша оценка наших трудов очень нам важна. Ставьте лайки, делитесь видео с друзьями, пишите комментарии и подписывайтесь на канал. 
+ 
+ПОДПИСАТЬСЯ НА НАШ ЮТУБ-КАНАЛ:
+ https://youtube.com/@sportcaston?si=4XYxgDxv4GcIbGvQ',
+                    ':так нуньес не заслуживает играть в старте вот и сидит на банке:'); , parameters: None
+[2024-09-21T11:30:08.084+0000] {sql.py:373} INFO - Rows affected: 1
+[2024-09-21T11:30:08.090+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=dag_saver_v01, task_id=insert_data, execution_date=20240921T112455, start_date=20240921T113007, end_date=20240921T113008
+[2024-09-21T11:30:08.130+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2024-09-21T11:30:08.143+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

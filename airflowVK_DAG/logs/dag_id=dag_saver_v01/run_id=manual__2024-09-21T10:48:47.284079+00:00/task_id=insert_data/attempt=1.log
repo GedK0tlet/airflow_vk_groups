@@ -1,0 +1,35 @@
+[2024-09-21T10:48:52.181+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: dag_saver_v01.insert_data manual__2024-09-21T10:48:47.284079+00:00 [queued]>
+[2024-09-21T10:48:52.191+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: dag_saver_v01.insert_data manual__2024-09-21T10:48:47.284079+00:00 [queued]>
+[2024-09-21T10:48:52.192+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-21T10:48:52.193+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 2
+[2024-09-21T10:48:52.193+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-21T10:48:52.204+0000] {taskinstance.py:1304} INFO - Executing <Task(PostgresOperator): insert_data> on 2024-09-21 10:48:47.284079+00:00
+[2024-09-21T10:48:52.223+0000] {standard_task_runner.py:55} INFO - Started process 6233 to run task
+[2024-09-21T10:48:52.245+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dag_saver_v01', 'insert_data', 'manual__2024-09-21T10:48:47.284079+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/dag_saver.py', '--cfg-path', '/tmp/tmpicl6fl5p']
+[2024-09-21T10:48:52.245+0000] {standard_task_runner.py:83} INFO - Job 30: Subtask insert_data
+[2024-09-21T10:48:52.361+0000] {task_command.py:389} INFO - Running <TaskInstance: dag_saver_v01.insert_data manual__2024-09-21T10:48:47.284079+00:00 [running]> on host 16da3808dee2
+[2024-09-21T10:48:52.418+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=<NAME>
+AIRFLOW_CTX_DAG_ID=dag_saver_v01
+AIRFLOW_CTX_TASK_ID=insert_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-21T10:48:47.284079+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-09-21T10:48:47.284079+00:00
+[2024-09-21T10:48:52.427+0000] {sql.py:253} INFO - Executing: 
+        
+        
+        
+[2024-09-21T10:48:52.441+0000] {base.py:73} INFO - Using connection ID 'postgres_default' for task execution.
+[2024-09-21T10:48:52.636+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 261, in execute
+    return_last=self.return_last,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 329, in run
+    raise ValueError("List of SQL statements is empty")
+ValueError: List of SQL statements is empty
+[2024-09-21T10:48:52.650+0000] {taskinstance.py:1327} INFO - Marking task as UP_FOR_RETRY. dag_id=dag_saver_v01, task_id=insert_data, execution_date=20240921T104847, start_date=20240921T104852, end_date=20240921T104852
+[2024-09-21T10:48:52.681+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 30 for task insert_data (List of SQL statements is empty; 6233)
+[2024-09-21T10:48:52.713+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2024-09-21T10:48:52.778+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

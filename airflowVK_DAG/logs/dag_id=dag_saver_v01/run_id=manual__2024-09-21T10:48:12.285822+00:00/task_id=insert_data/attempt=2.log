@@ -1,0 +1,58 @@
+[2024-09-21T10:58:19.555+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: dag_saver_v01.insert_data manual__2024-09-21T10:48:12.285822+00:00 [queued]>
+[2024-09-21T10:58:19.572+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: dag_saver_v01.insert_data manual__2024-09-21T10:48:12.285822+00:00 [queued]>
+[2024-09-21T10:58:19.573+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-21T10:58:19.573+0000] {taskinstance.py:1284} INFO - Starting attempt 2 of 2
+[2024-09-21T10:58:19.573+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-09-21T10:58:19.586+0000] {taskinstance.py:1304} INFO - Executing <Task(PostgresOperator): insert_data> on 2024-09-21 10:48:12.285822+00:00
+[2024-09-21T10:58:19.595+0000] {standard_task_runner.py:55} INFO - Started process 7007 to run task
+[2024-09-21T10:58:19.618+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'dag_saver_v01', 'insert_data', 'manual__2024-09-21T10:48:12.285822+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/dag_saver.py', '--cfg-path', '/tmp/tmpvtg9094d']
+[2024-09-21T10:58:19.619+0000] {standard_task_runner.py:83} INFO - Job 47: Subtask insert_data
+[2024-09-21T10:58:19.663+0000] {task_command.py:389} INFO - Running <TaskInstance: dag_saver_v01.insert_data manual__2024-09-21T10:48:12.285822+00:00 [running]> on host 16da3808dee2
+[2024-09-21T10:58:19.722+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=<NAME>
+AIRFLOW_CTX_DAG_ID=dag_saver_v01
+AIRFLOW_CTX_TASK_ID=insert_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-09-21T10:48:12.285822+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-09-21T10:48:12.285822+00:00
+[2024-09-21T10:58:19.723+0000] {sql.py:253} INFO - Executing: 
+            insert into vk_group_posts (vk_group_link, vk_post_id, vk_post_text, vk_post_comments) 
+                values (
+                    'sportcast.online',
+                    '{ti.xcom_pull(task_ids="fetch_vk_data", key="vk_post_id")}',
+                    '{ti.xcom_pull(task_ids="fetch_vk_data", key="text_post")}',
+                    '{ti.xcom_pull(task_ids="fetch_vk_data", key="comments_post")}'
+                );
+        
+[2024-09-21T10:58:19.730+0000] {base.py:73} INFO - Using connection ID 'postgres_default' for task execution.
+[2024-09-21T10:58:19.861+0000] {base.py:73} INFO - Using connection ID 'postgres_default' for task execution.
+[2024-09-21T10:58:19.871+0000] {sql.py:364} INFO - Running statement: 
+            insert into vk_group_posts (vk_group_link, vk_post_id, vk_post_text, vk_post_comments) 
+                values (
+                    'sportcast.online',
+                    '{ti.xcom_pull(task_ids="fetch_vk_data", key="vk_post_id")}',
+                    '{ti.xcom_pull(task_ids="fetch_vk_data", key="text_post")}',
+                    '{ti.xcom_pull(task_ids="fetch_vk_data", key="comments_post")}'
+                );
+        , parameters: None
+[2024-09-21T10:58:19.872+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 261, in execute
+    return_last=self.return_last,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 338, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 369, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type integer: "{ti.xcom_pull(task_ids="fetch_vk_data", key="vk_post_id")}"
+LINE 5:                     '{ti.xcom_pull(task_ids="fetch_vk_data",...
+                            ^
+
+[2024-09-21T10:58:19.880+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=dag_saver_v01, task_id=insert_data, execution_date=20240921T104812, start_date=20240921T105819, end_date=20240921T105819
+[2024-09-21T10:58:19.886+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 47 for task insert_data (invalid input syntax for type integer: "{ti.xcom_pull(task_ids="fetch_vk_data", key="vk_post_id")}"
+LINE 5:                     '{ti.xcom_pull(task_ids="fetch_vk_data",...
+                            ^
+; 7007)
+[2024-09-21T10:58:19.911+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2024-09-21T10:58:19.933+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check
